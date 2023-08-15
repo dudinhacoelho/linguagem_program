@@ -1,3 +1,4 @@
+#Daniela n°06, Eduarda n°08
 import PySimpleGUI as sg
 
 sg.theme('DarkPurple6') 
