@@ -1,0 +1,23 @@
+import PySimpleGUI as sg
+
+sg.theme('DarkPurple6') 
+
+layout = [
+  [sg.Text('Massa:', size =(13,1)),sg.InputText(key='kg')],
+  [sg.Text('Velocidade (m/s)'),sg.InputText(key='vel')],
+  [sg.Push(),sg.Button('Calcular'),sg.Button('Sair'),sg.Push()]
+  ]
+
+window = sg.Window('Cálculo de Energia Cinética', layout)
+
+while True:
+    event, values = window.read() 
+    print(event, values)
+    if event == sg.WIN_CLOSED or event == 'Sair':  
+      break
+    elif event == 'Calcular':
+      massa = float(values['kg'])
+      velocidade = float(values['vel'])
+      ec = 0.5*massa*velocidade**2
+      sg.Popup(f'O resultado é {ec:.2f}')
+window.close()
